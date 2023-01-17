@@ -1,6 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("./swagger.json");
+
+const usersRoutes = require("./routes/users-routes");
 
 const HttpError = require("./models/http-error");
 
@@ -21,6 +25,10 @@ app.use((req, res, next) => {
   res.setHeader("Acces-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   next();
 });
+
+app.use("/api/users", usersRoutes);
+
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route!", 404);
