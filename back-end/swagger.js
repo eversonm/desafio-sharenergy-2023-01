@@ -18,13 +18,24 @@ const doc = {
     {
       name: "Users",
       description: "Endpoint of Users",
-    }
+    },
+    {
+      name: "Clients",
+      description: "Endpoint of Clients",
+    },
   ],
   definitions: {
     Users: {
       name: "John Doe",
       email: "test@gmail.com",
       password: "test12pass"
+    },
+    Clients: {
+      age: 28,
+      email: "One of the most famous sky scrapers in the world!",
+      name: "John Doe",
+      username: "20 W 34th St, New York, NY 10001, Estados Unidos",
+      image: "http://www.image.com/someimage.jpg",
     },
     loginUser: {
       $email: "YOUR_EMAIL@something.com",
@@ -35,7 +46,21 @@ const doc = {
       $email: "YOUR_EMAIL@something.com",
       $password: "YOUR_PASSWORD",
     },
-    getAllUsers: [{ $ref: '#/definitions/Users' }],
+    getAllClients: [{ $ref: '#/definitions/Clients' }],
+    createClient: {
+      $age: 55,
+      $email: "email@email.com",
+      $name: "A complete name",
+      $username: "Creator name",
+      $image: "http://www.image.com/someimage.jpg"
+    },
+    putClient: {
+      $age: 55,
+      $email: "email@email.com",
+      $name: "A complete name",
+      $username: "Creator name",
+      $image: "http://www.image.com/someimage.jpg"
+    }
   },
   
 };

@@ -4,13 +4,16 @@ const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("./swagger.json");
 
+const clientsRoutes = require("./routes/clients-routes");
 const usersRoutes = require("./routes/users-routes");
 
 const HttpError = require("./models/http-error");
 
 const app = express();
 
-const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+// const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+
+const url = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}`;
 
 app.use(express.json());
 
@@ -26,9 +29,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/api/clients", clientsRoutes);
+
 app.use("/api/users", usersRoutes);
 
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
 
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route!", 404);
@@ -46,6 +52,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
+  .set('strictQuery', false)
   .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to mongodb Atlas!");

@@ -6,30 +6,6 @@ const secret_key = process.env.JWT_KEY;
 const HttpError = require("../models/http-error");
 const User = require("../models/user");
 
-const getAllUsers = async (req, res, next) => {
-  // #swagger.tags= ['Users']
-  // #swagger.description = 'Find all users'
-  /* #swagger.responses[200] = { 
-      schema: { 
-        $ref: "#/definitions/getAllUsers" 
-      },
-    } */
-  let users;
-  try {
-    users = await User.find({}, "-password");
-  } catch (err) {
-    const error = new HttpError(
-      "Fetching users failed! Please try again later.",
-      500
-    );
-    return next(error);
-  }
-
-  res
-    .status(200)
-    .json({ users: users.map((u) => u.toObject({ getters: true })) });
-};
-
 const signup = async (req, res, next) => {
   // #swagger.path = '/api/users/'
   // #swagger.tags= ['Users']
@@ -184,7 +160,6 @@ const login = async (req, res, next) => {
 };
 
 module.exports = {
-  getAllUsers,
   signup,
   login,
 };

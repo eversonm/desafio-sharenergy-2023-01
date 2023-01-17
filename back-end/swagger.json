@@ -11,10 +11,139 @@
     {
       "name": "Users",
       "description": "Endpoint of Users"
+    },
+    {
+      "name": "Clients",
+      "description": "Endpoint of Clients"
     }
   ],
   "schemes": "http",
   "paths": {
+    "/api/clients/allClients": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "description": "Find all clients",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/getAllClients"
+            }
+          }
+        }
+      }
+    },
+    "/api/clients/{cid}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "description": "Find a place using Id",
+        "parameters": [
+          {
+            "name": "cid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Clients"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "description": "Update all fields of a Client",
+        "parameters": [
+          {
+            "name": "cid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "Client",
+            "in": "body",
+            "description": "Update a client.",
+            "schema": {
+              "$ref": "#/definitions/putClient"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "description": "Delete a place using place id",
+        "parameters": [
+          {
+            "name": "cid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/clients/newClient": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "description": "Create a new client using a provided json",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "Client",
+            "in": "body",
+            "description": "Create a client.",
+            "schema": {
+              "$ref": "#/definitions/createClient"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
     "/api/users/": {
       "get": {
         "tags": [
@@ -97,6 +226,31 @@
         }
       }
     },
+    "Clients": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": "number",
+          "example": 28
+        },
+        "email": {
+          "type": "string",
+          "example": "One of the most famous sky scrapers in the world!"
+        },
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "username": {
+          "type": "string",
+          "example": "20 W 34th St, New York, NY 10001, Estados Unidos"
+        },
+        "image": {
+          "type": "string",
+          "example": "http://www.image.com/someimage.jpg"
+        }
+      }
+    },
     "loginUser": {
       "type": "object",
       "properties": {
@@ -136,11 +290,81 @@
         "password"
       ]
     },
+    "getAllClients": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Clients"
+      }
+    },
     "getAllUsers": {
       "type": "array",
       "items": {
         "$ref": "#/definitions/Users"
       }
+    },
+    "createClient": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": "number",
+          "example": 55
+        },
+        "email": {
+          "type": "string",
+          "example": "email@email.com"
+        },
+        "name": {
+          "type": "string",
+          "example": "A complete name"
+        },
+        "username": {
+          "type": "string",
+          "example": "Creator name"
+        },
+        "image": {
+          "type": "string",
+          "example": "http://www.image.com/someimage.jpg"
+        }
+      },
+      "required": [
+        "age",
+        "email",
+        "name",
+        "username",
+        "image"
+      ]
+    },
+    "putClient": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": "number",
+          "example": 55
+        },
+        "email": {
+          "type": "string",
+          "example": "email@email.com"
+        },
+        "name": {
+          "type": "string",
+          "example": "A complete name"
+        },
+        "username": {
+          "type": "string",
+          "example": "Creator name"
+        },
+        "image": {
+          "type": "string",
+          "example": "http://www.image.com/someimage.jpg"
+        }
+      },
+      "required": [
+        "age",
+        "email",
+        "name",
+        "username",
+        "image"
+      ]
     }
   }
 }
