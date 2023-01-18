@@ -100,7 +100,8 @@ const login = async (req, res, next) => {
           $ref: "#/definitions/loginUser"
       }
   } */
-  const { email, password } = req.body;
+
+  const { email, password, remember } = req.body;
 
   let existingUser;
 
@@ -142,15 +143,26 @@ const login = async (req, res, next) => {
 
   let token;
   try {
-    token = jwt.sign(
-      { userId: existingUser.id, email: existingUser.email },
-      secret_key,
-      { expiresIn: "1h" }
-    );
+    if (remember === "true") {
+      console.log("Usuario VIp")
+      token = jwt.sign(
+        { userId: existingUser.id, email: existingUser.email },
+        secret_key,
+        { expiresIn: "30d" }
+      );
+    } else {
+      token = jwt.sign(
+        { userId: existingUser.id, email: existingUser.email },
+        secret_key,
+        { expiresIn: "1h" }
+      );
+    }
   } catch (err) {
     const error = new HttpError("Logging in failed! Please try again.", 500);
     return next(error);
   }
+
+  console.log(token)
 
   res.json({
     userId: existingUser.id,
