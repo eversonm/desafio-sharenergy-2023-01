@@ -5,10 +5,17 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
+import MainNavigation from "./shared/components/Navigation/MainNavigation";
+import { AuthContext } from "./shared/context/auth-context";
+import { useAuth } from "./shared/hooks/auth-hook";
+
+import Auth from "./pages/Auth";
 
 function App() {
-  const [token, setToken] = useState(true);
+  
+  const {token, login, logout, userId} = useAuth();
   let routes;
+
   if (token) {
     routes = (
       <Switch>
@@ -37,7 +44,7 @@ function App() {
     routes = (
       <Switch>
         <Route path="/auth">
-          <div></div>
+          <Auth />
         </Route>
         <Redirect to="/auth" />
       </Switch>
@@ -45,9 +52,20 @@ function App() {
   }
 
   return (
-    <Router>
-      <main>{routes}</main>
-    </Router>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: !!token,
+        token: token,
+        userId: userId,
+        login: login,
+        logout: logout,
+      }}
+    >
+      <Router>
+        <MainNavigation />
+        <main>{routes}</main>
+      </Router>
+    </AuthContext.Provider>
   );
 }
 
