@@ -7,7 +7,6 @@ import Button from "../shared/components/FormElements/Button";
 import ErrorModal from "../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../shared/components/UIElements/LoadingSpinner";
 import {
-  VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
 } from "../shared/util/validators";
 
@@ -24,7 +23,7 @@ const Auth = (props) => {
 
   const [formState, inputHandler, setFormData] = useForm(
     {
-      email: {
+      username: {
         value: "",
         isValid: false,
       },
@@ -54,7 +53,7 @@ const Auth = (props) => {
         // "http://localhost:5000/api/users/login",
         "POST",
         JSON.stringify({
-          email: formState.inputs.email.value,
+          username: formState.inputs.username.value,
           password: formState.inputs.password.value,
           remember: formState.inputs.remember.value,
         }),
@@ -77,12 +76,12 @@ const Auth = (props) => {
         <hr />
         <form onSubmit={authSubmitHandler}>
           <Input
-            id="email"
+            id="username"
             element="input"
-            type="email"
-            label="E-mail"
-            validators={[VALIDATOR_EMAIL()]}
-            errorText="Please enter a valid e-mail address!"
+            type="text"
+            label="Username"
+            validators={[VALIDATOR_MINLENGTH(17)]}
+            errorText="Please enter a valid username address!"
             onInput={inputHandler}
           />
           <Input
@@ -90,7 +89,7 @@ const Auth = (props) => {
             element="input"
             type="password"
             label="Password"
-            validators={[VALIDATOR_MINLENGTH(6)]}
+            validators={[VALIDATOR_MINLENGTH(10)]}
             errorText="Please enter a valid password, at least 6 characteres!"
             onInput={inputHandler}
           />

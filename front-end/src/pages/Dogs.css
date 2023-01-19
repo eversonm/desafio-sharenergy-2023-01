@@ -1,0 +1,31 @@
+.dogs {
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  max-width: 50rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.refresh-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  max-width: 80%;
+  max-height: 80vh;
+  border-radius: 5%;
+  margin: auto;
+  display: block;
+}
+
+.avatar img {
+  margin: auto;
+  display: block;
+  max-height: 80vh;
+  border-radius: 5%;
+}
