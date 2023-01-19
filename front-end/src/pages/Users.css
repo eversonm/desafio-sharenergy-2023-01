@@ -1,0 +1,59 @@
+.users-paginations {
+    margin: 1rem;
+    width: calc(9% - 2rem);
+    min-width: 17.5rem;
+  }
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+	gap: 15px;
+    padding: 0;
+}
+ul {
+	list-style: none;
+}
+
+.pagination .page-number {
+	font-size: 14px;
+	font-weight: 600;
+	color: seagreen;
+	background: #fff;
+	padding: 10px 20px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: all 0.5s ease;
+}
+
+.pagination .page-number:hover {
+	color: #fff;
+	background: seagreen;
+}
+
+.pagination .active {
+	color: #fff;
+	background: seagreen;
+}
+
+.pagination .active:hover {
+	color: seagreen;
+	background: #fff;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  font: inherit;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  padding: 0.15rem 0.25rem;
+}
+
+.search:focus{
+  outline: none;
+  background: #ebebeb;
+  border-color: green;
+}

@@ -21,7 +21,6 @@ const Dogs = (props) => {
         link = responseData.url;
       } while (name.includes(link.split(".").pop()));
 
-      console.log(link);
       setImageLoaded(link);
     };
     fetchImage();
@@ -35,7 +34,6 @@ const Dogs = (props) => {
       link = responseData.url;
     } while (name.includes(link.split(".").pop()));
 
-    console.log(link);
     setImageLoaded(link);
   };
 

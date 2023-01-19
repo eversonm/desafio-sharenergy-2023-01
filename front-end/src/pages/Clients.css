@@ -1,0 +1,14 @@
+.client-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+h3 {
+  font-size: 0.9rem;
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 10px;
+}

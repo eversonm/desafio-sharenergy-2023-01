@@ -90,8 +90,8 @@ const UpdateClient = () => {
     event.preventDefault();
     try {
       await sendRequest(
-        // `${process.env.REACT_APP_BACKEND_URL}/clients/${clientId}`,
-        `http://localhost:5000/api/clients/${clientId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/clients/${clientId}`,
+        // `http://localhost:5000/api/clients/${clientId}`,
         "PUT",
         JSON.stringify({
           name: formState.inputs.name.value,

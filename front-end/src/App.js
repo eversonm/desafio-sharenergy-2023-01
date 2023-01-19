@@ -10,6 +10,8 @@ import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
 
 import Auth from "./pages/Auth";
+import Users from "./pages/Users"
+import Clients from "./pages/Clients";
 import Dogs from "./pages/Dogs";
 import Cats from "./pages/Cats";
 import NewClient from "./components/NewClient";
@@ -27,7 +29,7 @@ function App() {
           <Cats />
         </Route>
         <Route path="/clients" exact>
-          <div></div>
+          <Clients />
         </Route>
         <Route path="/clients/:clientId" exact>
           <UpdateClient />
@@ -36,7 +38,7 @@ function App() {
           <NewClient />
         </Route>
         <Route path="/users" exact>
-          <div></div>
+          <Users />
         </Route>
         <Route path="/dogs" exact>
           <Dogs />

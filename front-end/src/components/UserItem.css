@@ -1,0 +1,49 @@
+.user-item {
+  margin: 1rem;
+  width: calc(95% - 2rem);
+  min-width: 17.5rem;
+}
+
+.user-div {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow: hidden;
+  background: #292929;
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 30px;
+}
+
+.user-div h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: normal;
+  color: white;
+}
+
+.user-item__content {
+  padding: 0;
+}
+
+.user-item__image {
+  width: 9rem;
+  height: 9rem;
+  margin-right: 1rem;
+}
+
+.user-item__img {
+  width: 7rem;
+  height: 7rem;
+  margin-left: 0.5rem;
+  border-radius: 6px;
+}
+
+h3 {
+  font-size: 0.5rem;
+}

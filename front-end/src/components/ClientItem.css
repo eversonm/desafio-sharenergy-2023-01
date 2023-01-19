@@ -1,0 +1,60 @@
+
+h2, h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: normal;
+  color: white;
+}
+  
+.client-item {
+  position: relative;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow: hidden;
+  background: #292929;
+}
+
+.client-div {
+  width: 250px;
+  float: left;
+}
+
+.client-div-button {
+  float: right;
+  display:flex;
+  flex-direction: column;
+}
+
+.inner1{
+  float:left;
+  margin-top: 15px;
+  margin-bottom: 15px; 
+}
+.inner2{
+  float:left; 
+  margin-top: 20px;
+  margin-bottom: 10px; 
+} 
+
+.client-container {
+  display: block
+}
+
+.user-item:hover h2,
+.user-item:active h2,
+.user-item:hover h3,
+.user-item:active h3 {
+  color: yellow;
+}
+.client-item h2, h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: normal;
+  color: white;
+}
+
+.user-item__info h3 {
+  margin: 0;
+}
