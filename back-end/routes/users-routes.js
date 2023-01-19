@@ -6,15 +6,12 @@ const usersControllers = require("../controllers/users-controllers");
 const router = express.Router();
 
 router.post(
-  "/signup",
+  "/login", 
   [
-    check("name").not().isEmpty(),
-    check("email").normalizeEmail().isEmail(),
-    check("password").isLength({ min: 6 }),
+    check("username").isLength({ min: 17 }),
+    check("password").isLength({ min: 10 }),
   ],
-  usersControllers.signup
+  usersControllers.login
 );
-
-router.post("/login", usersControllers.login);
 
 module.exports = router;
