@@ -16,22 +16,21 @@ router.post(
   [
     check("name").not().isEmpty(),
     check("email").normalizeEmail().isEmail(),
-    check("phone").isLength({ min: 12 }),
+    check("phone").isLength({ min: 10 }),
     check("address").not().isEmpty(),
     check("cpf").isLength({ min: 11 }),
   ],
   clientsControllers.createClient
 );
 
-router.put(
+router.patch(
   "/:cid",[
     check("name").not().isEmpty(),
     check("email").normalizeEmail().isEmail(),
-    check("phone").isLength({ min: 12 }),
+    check("phone").isLength({ min: 10 }),
     check("address").not().isEmpty(),
-    check("cpf").isLength({ min: 11 }),
   ],
-  clientsControllers.putClient
+  clientsControllers.patchClient
 );
 
 router.delete("/:cid", clientsControllers.deleteClient);

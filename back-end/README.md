@@ -1,6 +1,9 @@
 # Desafio Sharenergy API-backend
 *Aplicação em Nodejs para acesso a rotas e outras APIs como: [Random User Generator](https://randomuser.me/), [HTTP Cat](https://http.cat/) e [Random Dog](https://random.dog/).*
 
+
+![](backend.gif)
+
 ## Modules
 [bcrypt](https://www.npmjs.com/package/bcrypt) <br>
 [cors](https://www.npmjs.com/package/cors)<br>
@@ -15,9 +18,9 @@
 [nodemon](https://www.npmjs.com/package/nodemon)<br>
 
 
-## Options
+## Executar apenas o back-end
 *O servidor de desenvolvimento precisa do arquivo nodemon.json na raiz da pasta, para ter acesso a algum serviço com MongoDB.*<br>
-É necessário criar o arquivo <b>nodemon.json</b> e inserir as credenciais para acesso ao banco na variável <b>env</b>.<br>
+Para criar executar <b>apenas</b> a aplicação do backend, é preciso criar o arquivo <b>nodemon.json</b> e inserir as credenciais para acesso ao banco (MongoDB da sua máquina ou Atlas) na variável <b>env</b>.<br>
 Além disso, é necessário informar uma <b>chave secreta</b> para utilizar o jsonwebtoken.
 
 ### Exemplo de arquivo
@@ -32,13 +35,41 @@ Além disso, é necessário informar uma <b>chave secreta</b> para utilizar o js
 }
 </code></pre>
 
+## Iniciar a aplicação localmente
+Para iniciar a aplicação:
+<pre><code>npm install
+npm start</code></pre>
+
 ## Swagger docs link
+Para testar a API de forma prática: 
 <b>http://localhost:5000/doc</b>
 
-## Update swagger docs
+## Atualizar o swagger docs
 Qualquer alteração feita no arquivo swagger.js ou nos controladores da aplicação, devem ser refletidas no swagger, executando o código abaixo:
 <pre><code>npm run swagger-autogen</code></pre>
 
-## Start project
-Para iniciar a aplicação:
-<pre><code>npm start</code></pre>
+## Rotas da aplicação
+* GET
+  + /api/clients/allClients
+  + /api/clients/{cid}
+    - cid (client id)
+* POST
+  + /api/users/login
+    - username
+    - password
+  + /api/clients/newClient
+    - name
+    - email
+    - phone (10 caracteres)
+    - address
+    - cpf (11 caracteres)
+* PATCH
+  + /api/clients/{cid}
+    - name
+    - email
+    - phone
+    - address
+
+* DELETE  
+  + /api/clients/{cid}
+    - cid (client id)

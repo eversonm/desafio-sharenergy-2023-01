@@ -7,7 +7,7 @@ const HttpError = require("../models/http-error");
 const User = require("../models/user");
 
 const login = async (req, res, next) => {
-  // #swagger.tags= ['Users']
+  // #swagger.tags= ['Login']
   // #swagger.description = 'Log in a user'
   /* #swagger.parameters['User'] = {
       in: 'body',

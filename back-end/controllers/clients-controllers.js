@@ -122,15 +122,15 @@ const createClient = async (req, res, next) => {
   res.status(201).json({ client: createdClient });
 };
 
-const putClient = async (req, res, next) => {
+const patchClient = async (req, res, next) => {
   // #swagger.path = '/api/places/{cid}'
   // #swagger.tags= ['Clients']
-  // #swagger.description = 'Update all fields of a Client'
+  // #swagger.description = 'Update fields of a Client'
   /* #swagger.parameters['Client'] = {
     in: 'body',
     description: 'Update a client.',
     schema: {
-        $ref: "#/definitions/putClient"
+        $ref: "#/definitions/patchClient"
     }
   } */
   
@@ -144,7 +144,7 @@ const putClient = async (req, res, next) => {
   }
 
   const clientId = req.params.cid;
-  const { name, email, phone, address, cpf } = req.body;
+  const { name, email, phone, address } = req.body;
 
   let client;
   try {
@@ -165,7 +165,6 @@ const putClient = async (req, res, next) => {
   client.email = email;
   client.phone = phone;
   client.address = address;
-  client.cpf = cpf;
 
   try {
     await client.save();
@@ -228,6 +227,6 @@ module.exports = {
   getClientById,
   getAllClients,
   createClient,
-  putClient,
+  patchClient,
   deleteClient,
 };
