@@ -11,6 +11,13 @@ import "./ClientItem.css";
 const ClientItem = (props) => {
   const auth = useContext(AuthContext);
 
+  const cpf = props.cpf;
+  const cpf_security = cpf.slice(0, 3) + cpf.slice(2).replace(/.(?=...)/g, '*');
+
+  const phone = props.phone.replace(/^(\d{2})(\d{4})(\d{4}).*/, '($1) $2-$3');
+  const phone_security = phone.slice(0, 4) + phone.slice(3).replace(/.(?=...)/g, '*');
+
+
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
@@ -63,10 +70,10 @@ const ClientItem = (props) => {
           <div className="client-container">
             <div className="client-div">
               <h2>{props.name}</h2>
-              <h3>email: {props.email}</h3>
-              <h3>telefone: {props.phone}</h3>
+              <h3>Email: {props.email}</h3>
+              <h3>Telefone: {phone_security}</h3>
               <h3>Endereço: {props.address}</h3>
-              <h3>CPF: {props.cpf}</h3>
+              <h3>CPF: {cpf_security}</h3>
             </div>
             <div className="client-div-button">
               <div className="inner1">

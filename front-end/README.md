@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Desafio Sharenergy API-backend
+*Aplicação em React para o desafio*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![](front-end-react.gif)
 
-In the project directory, you can run:
+## Modules
+[React](https://pt-br.reactjs.org/) <br>
+[ReactDOM](https://pt-br.reactjs.org/docs/react-dom.html)<br>
+[react-paginate](https://www.npmjs.com/package/react-paginate) <br>
+[react-progressive-graceful-image](https://www.npmjs.com/package/react-progressive-graceful-image) <br>
+[react-router-dom v5](https://reactrouter.com/en/main) <br>
+[react-transition-group](https://reactcommunity.org/react-transition-group/)<br>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Executar apenas o front-end
+*O servidor de desenvolvimento precisa do arquivo .env na raiz da pasta.*<br>
+Para criar executar <b>apenas</b> a aplicação do front-end, é preciso criar o arquivo <b>.env</b> e utilizar o [backend](https://github.com/eversonm/desafio-sharenergy-2023-01/tree/everson-magalhaes-cavalcante/back-end) ou uma estrutura similar.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Exemplo de arquivo
+<pre><code>REACT_APP_BACKEND_URL=http://localhost:5000/api
+</code></pre>
 
-### `npm test`
+## Iniciar a aplicação localmente
+Para iniciar a aplicação:
+<pre><code>npm install
+npm start</code></pre>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Swagger docs link
+Para testar a aplicação: 
+<b>http://localhost:3000/</b> 
+<br>
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Rotas utilizadas na aplicação
++ [Cats](http://localhost:5000/cats) - produz imagens de gatos de acordo com o código HTTP inserido, usando a API HTTP Cat](https://http.cat/)
++ [Users](http://localhost:5000/users) - carrega informações de usuários, permitindo busca por nome, email ou username, usando a API [Random User Generator](https://randomuser.me/)
++ [Dogs](http://localhost:5000/dogs) - carrega imagens aleatórias de cachorros, usando a API [Random Dog](https://random.dog/)
++ [Clients](http://localhost:5000/clients) - CRUD para cadastrar, apagar, editar e trazer todos os clientes, usando Nodejs e MongoDB.

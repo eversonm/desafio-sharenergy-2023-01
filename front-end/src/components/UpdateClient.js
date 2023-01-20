@@ -40,10 +40,6 @@ const UpdateClient = () => {
         value: "",
         isValid: false,
       },
-      cpf: {
-        value: "",
-        isValid: false,
-      },
     },
     false
   );
@@ -74,10 +70,6 @@ const UpdateClient = () => {
               value: responseData.address,
               isValid: true,
             },
-            cpf: {
-              value: responseData.cpf,
-              isValid: true,
-            },
           },
           true
         );
@@ -92,13 +84,12 @@ const UpdateClient = () => {
       await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/clients/${clientId}`,
         // `http://localhost:5000/api/clients/${clientId}`,
-        "PUT",
+        "PATCH",
         JSON.stringify({
           name: formState.inputs.name.value,
           email: formState.inputs.email.value,
           phone: formState.inputs.phone.value,
           address: formState.inputs.address.value,
-          cpf: formState.inputs.cpf.value,
         }),
         {
           "Content-Type": "application/json",
@@ -174,17 +165,6 @@ const UpdateClient = () => {
             errorText="Please enter a valid address (at least 5 characteres)."
             onInput={inputHandler}
             initialValue={loadedClient.address}
-            initialValid={true}
-          />
-          <Input
-            id="cpf"
-            element="textarea"
-            type="number"
-            label="CPF"
-            validators={[VALIDATOR_MINLENGTH(11)]}
-            errorText="Please enter a valid cpf (at least 11 characteres)."
-            onInput={inputHandler}
-            initialValue={loadedClient.cpf}
             initialValid={true}
           />
           <Button type="submit" disabled={!formState.isValid}>

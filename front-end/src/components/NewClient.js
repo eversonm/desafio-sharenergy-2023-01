@@ -75,8 +75,8 @@ const NewClient = () => {
           element="input"
           type="text"
           label="Nome Completo"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid name!"
+          validators={[VALIDATOR_REQUIRE(10)]}
+          errorText="Please enter a valid name! At least 10 chars"
           onInput={inputHandler}
         />
         <Input
@@ -91,8 +91,8 @@ const NewClient = () => {
           id="phone"
           element="input"
           label="Telefone"
-          validators={[VALIDATOR_REQUIRE(12)]}
-          errorText="Please enter a valid phone number!"
+          validators={[VALIDATOR_REQUIRE(10)]}
+          errorText="Please enter a valid phone number! At least 10 chars"
           onInput={inputHandler}
         />
         <Input
