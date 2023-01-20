@@ -11,6 +11,9 @@ Construir uma aplicação web (frontend e backend) capaz de realizar a comunica�
 <b>https://sharenergy-app.onrender.com</b>
 
 
+## Vídeo da Aplicação
+[![image alt text](./everson-youtube.png)](https://youtu.be/yYjxCBCwUug)
+
 ### Requisitos da aplicação e de código
 
 - Interface amigável, bonita e limpa
