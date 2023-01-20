@@ -9,7 +9,6 @@ export const useAuth = () => {
 
   const login = useCallback((uid, token, expirationDate) => {
     setToken(token);
-    console.log(expirationDate)
     const tokenExpirationDate =
       expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
     setTokenExpirationDate(tokenExpirationDate); // token expiration has another scope

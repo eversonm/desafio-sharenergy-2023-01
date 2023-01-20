@@ -7,6 +7,9 @@ Repositório destinado a criação de uma aplicação Web, integrada com APIs co
 
 Construir uma aplicação web (frontend e backend) capaz de realizar a comunicação com APIs distintas, além de um CRUD. A descrição completa está no link: [Descricao](https://github.com/eversonm/desafio-sharenergy-2023-01/blob/main/README.md).
 
+## Aplicação hospedada
+<b>https://sharenergy-app.onrender.com</b>
+
 
 ### Requisitos da aplicação e de código
 

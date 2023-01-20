@@ -1,8 +1,10 @@
 import React from "react";
-import ClientItem from "./ClientItem"
+
+import ClientItem from "../ClientItem";
+import "./styles.css";
 
 const ClientList = (props) => {
-  console.log(props.items.length)
+  console.log(props.items.length);
   if (props.items.length === 0) {
     return (
       <div className="center">

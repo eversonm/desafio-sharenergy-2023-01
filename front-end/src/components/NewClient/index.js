@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import { useForm } from "../shared/hooks/form-hook";
-import { useHttpClient } from "../shared/hooks/http-hook";
-import { AuthContext } from "../shared/context/auth-context";
+import { useForm } from "../../shared/hooks/form-hook";
+import { useHttpClient } from "../../shared/hooks/http-hook";
+import { AuthContext } from "../../shared/context/auth-context";
 
-import Input from "../shared/components/FormElements/Input";
-import Button from "../shared/components/FormElements/Button";
-import LoadingSpinner from "../shared/components/UIElements/LoadingSpinner";
-import { VALIDATOR_EMAIL, VALIDATOR_REQUIRE } from "../shared/util/validators";
-import "./newClient.css"
+import Input from "../../shared/components/FormElements/Input";
+import Button from "../../shared/components/FormElements/Button";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import { VALIDATOR_EMAIL, VALIDATOR_REQUIRE } from "../../shared/util/validators";
+import "./styles.css"
 
 const NewClient = () => {
   const auth = useContext(AuthContext);

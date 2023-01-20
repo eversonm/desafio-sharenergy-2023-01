@@ -1,12 +1,11 @@
 import React, { useState, useContext } from "react";
-// import "./UserItem.css";
-import Card from "../shared/components/UIElements/Card";
-import Modal from "../shared/components/UIElements/Modal";
-import Button from "../shared/components/FormElements/Button";
-import { AuthContext } from "../shared/context/auth-context";
+import Card from "../../shared/components/UIElements/Card";
+import Modal from "../../shared/components/UIElements/Modal";
+import Button from "../../shared/components/FormElements/Button";
+import { AuthContext } from "../../shared/context/auth-context";
 
-import { useHttpClient } from "../shared/hooks/http-hook";
-import "./ClientItem.css";
+import { useHttpClient } from "../../shared/hooks/http-hook";
+import "./styles.css";
 
 const ClientItem = (props) => {
   const auth = useContext(AuthContext);
